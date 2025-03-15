@@ -1,0 +1,10 @@
+@import "tailwindcss";
+
+@layer components{
+    .btn-primary{
+        @apply bg-blue-500 hover:bg-blue-700 text-white py-3 px-3 font-thin rounded-full
+    }
+    .btn-outline{
+        @apply text-black py-3 px-3 font-thin rounded-full ring-1 hover:ring-cyan-400  
+    }
+}
