@@ -8,6 +8,8 @@ import { errorMiddleware } from "./middlewares/error-middleware.js";
 import { contactForm } from "./controller/contact-controller.js";
 
 const app = express();
+const port = process.env.PORT || 3000;
+
 //!middlewre thaat pares incoming requests in json payload
 const corsOption={
   origin:"http://localhost:5173",
@@ -21,7 +23,7 @@ app.use("/form",contactForm)
 app.use(errorMiddleware);
 
 db().then(() => {
-  app.listen(3000, () => {
-    console.log(`Server is running on http://localhost:3000`);
+  app.listen(port, () => {
+    console.log(`Server is running on ${port}`);
   });
 });
