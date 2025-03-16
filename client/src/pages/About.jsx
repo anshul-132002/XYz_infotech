@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import LogoSection from "../components/LogoSection";
 import { motion } from "motion/react";
 import { ThemeContext } from "../Context/createContext";
+import { NavLink } from "react-router";
 
 function About() {
   const { user ,theme} = useContext(ThemeContext);
@@ -20,7 +21,7 @@ function About() {
           {user ? (
             <motion.h1
            
-            className="text-md font-sans font-thin  text-gray-800">
+            className={`text-md font-mono font-thin ${theme === "light" ? "text-gray-800": "text-white" } `}>
              Helllo {user.username} to our website 
             </motion.h1>
           ) : (
@@ -70,8 +71,8 @@ function About() {
             </em>
           </p>
           <div className=" gap-3 flex flex-row">
-            <button className="btn-primary">Connect now</button>
-            <button className="btn-outline">Learn more</button>
+            <NavLink to={"/contact"} className="btn-primary">Connect now</NavLink>
+            <NavLink to={"/"} className="btn-outline">Learn more</NavLink>
           </div>
         </div>
         <div>

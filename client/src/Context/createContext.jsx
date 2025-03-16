@@ -36,7 +36,7 @@ export const ThemeProvider = ({ children }) => {
         headers: { Authorization: authentication },
       });
       if (response.status === 200) {
-        console.log(response.data.user);
+        // console.log(response.data.user);
         setUser(response.data.user);
         setIsLoading(false)
       }

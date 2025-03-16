@@ -51,7 +51,7 @@ export const getallContacts = async (req, res, next) => {
   try {
     const contact = await Contact.find();
     if (!contact || contact.length === 0) {
-      return res.status(404).json({ message: "contact not found" });
+      return res.status(200).json({ message: "contact not found" , data:"there is no contact remaining !!" });
     }
     res.status(200).json(contact);
   } catch (error) {

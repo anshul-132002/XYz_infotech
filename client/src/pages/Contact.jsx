@@ -7,7 +7,7 @@ import axios from "axios";
 import { toast, ToastContainer, Bounce } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 function Contact() {
-  const { theme, user } = useContext(ThemeContext);
+  const { theme, user , API } = useContext(ThemeContext);
   const { handleBlur, handleChange, handleSubmit, errors, values, touched } =
     useFormik({
       enableReinitialize: true,
@@ -20,7 +20,7 @@ function Contact() {
       onSubmit: async (value, { resetForm }) => {
         try {
           const response = await axios.post(
-            "http://localhost:3000/form/contact",
+           `${API}/form/contact`,
             value
           );
           console.log("Response from backend:", response);

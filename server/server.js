@@ -12,7 +12,7 @@ const port = process.env.PORT || 3000;
 
 //!middlewre thaat pares incoming requests in json payload
 const corsOption={
-  origin:"http://localhost:5173",
+  origin:["http://localhost:5173","https://xyz-infotech.onrender.com"],
   methods:"GET, POST, PUT, DELETE, PATCH,HEAD",
   credential:true
 }

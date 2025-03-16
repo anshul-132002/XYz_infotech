@@ -4,19 +4,19 @@ import { ThemeContext } from "../../Context/createContext";
 import { Bounce, toast, ToastContainer } from "react-toastify";
 
 function AdminContacts() {
-  const { authentication , API} = useContext(ThemeContext);
+  const { authentication, API } = useContext(ThemeContext);
   const [contacts, setContacts] = useState([]);
 
   const getAllContacts = async () => {
     try {
-      const response = await axios.get(
-        "http://localhost:3000/api/admin/contacts",
-        {
-          headers: {
-            Authorization: authentication,
-          },
-        }
-      );
+      const response = await axios.get(`${API}/api/admin/contacts`, {
+        headers: {
+          Authorization: authentication,
+        },
+      });
+      if(response.data.length ===0 ){
+       setContacts("No contacts found");
+      }
       setContacts(response.data);
     } catch (error) {
       console.log(error);
@@ -24,10 +24,10 @@ function AdminContacts() {
   };
 
   const handleDeleteContact = async (id) => {
-    console.log(id);
+    
     try {
       const response = await axios.delete(
-      `${API}/api/admin/contacts/delete/${id}`,
+        `${API}/api/admin/contacts/delete/${id}`,
         {
           headers: {
             Authorization: authentication,

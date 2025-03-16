@@ -3,7 +3,6 @@ import { ThemeContext } from "../Context/createContext";
 
 function ServiceSection() {
   const { service ,theme } = useContext(ThemeContext);
-
   return (
     <div className={`${
       theme === "light" ? "bg-white text-black mt-2" : "bg-black text-white"
