@@ -24,7 +24,8 @@ function Register() {
         try {
           const response = await axios.post(
            `${API}/api/register`,
-            value
+            value,
+            { withCredentials: true }
           );
           console.log(response.data);
           const token_Data =response.data.token

@@ -20,7 +20,7 @@ function Login() {
       validationSchema: LoginSchema,
       onSubmit: async (value, { resetForm }) => {
         try {
-          const response = await axios.post(`${API}/api/login`, value);
+          const response = await axios.post(`${API}/api/login`, value , { withCredentials: true });
           if (response.status === 200) {
             toast.success("Login successful!");
             // Store token
