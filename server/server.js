@@ -12,9 +12,9 @@ const port = process.env.PORT || 3000;
 
 //!middlewre thaat pares incoming requests in json payload
 const corsOption={
-  origin: ["http://localhost:5173", "https://xyz-infotech-frontend.onrender.com"], // Ensure correct production frontend URL
+  origin: ["http://localhost:5173", "https://x-yz-infotech-di83.vercel.app/"], 
   methods: ["GET", "POST", "PUT", "DELETE", "PATCH", "HEAD"],
-  credentials: true,
+  credential: true,
 }
 app.use(cors(corsOption))
 app.use(express.json());

@@ -20,7 +20,7 @@ function Login() {
       validationSchema: LoginSchema,
       onSubmit: async (value, { resetForm }) => {
         try {
-          const response = await axios.post(`${API}/api/login`, value , { withCredentials: true });
+          const response = await axios.post(`${API}/api/login`, value);
           if (response.status === 200) {
             toast.success("Login successful!");
             // Store token
@@ -46,14 +46,14 @@ function Login() {
           theme === "light" ? "bg-white text-black mt-2" : "bg-black text-white"
         }`}
       >
-        <main className="grid grid-cols-2">
+        <main className="grid md:grid-cols-2 sm:grid-cols-1 ">
           {/* Left Section */}
-          <div className="flex justify-center items-center">
-            <img src="/images/login.png" alt="code" className="h-svh" />
+          <div className="hidden md:flex lg:flex justify-center items-center ">
+            <img src="/images/login.png" alt="code" className="h-full object-cover" />
           </div>
           {/* Right Section */}
           <div
-            className={`flex justify-center items-center border-1  border: 1px solid m-10`}
+            className={`flex justify-center items-center border-1  border: 1px solid m-10  h-screen`}
           >
             <form
               className={` flex flex-col gap-5 w-full max-w-lg`}
